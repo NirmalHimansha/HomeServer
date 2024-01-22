@@ -1,0 +1,6 @@
+install Docker and DockerCompose on your system
+copy the configuration from the file
+create new directory
+create docker-compose.yml and paste the configueration
+run the file by typing ' docker-compose.yml up -d '
+enjoy !
