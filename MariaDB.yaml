@@ -1,0 +1,48 @@
+name: peaceful_samuel
+services:
+  mariadb:
+    cpu_shares: 90
+    command: []
+    container_name: mariadb
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=casaos
+      - PGID=1000
+      - PUID=1000
+      - REMOTE_SQL=
+      - TZ=Etc/UTC
+    hostname: mariadb
+    image: lscr.io/linuxserver/mariadb:latest
+    labels:
+      icon: https://github.com/walkxcode/dashboard-icons/blob/main/png/mariadb.png?raw=true
+    ports:
+      - target: 3306
+        published: "3306"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData//config
+        target: /config
+    devices: []
+    cap_add: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: https://github.com/walkxcode/dashboard-icons/blob/main/png/mariadb.png?raw=true
+  index: /
+  is_uncontrolled: false
+  port_map: ""
+  scheme: http
+  store_app_id: peaceful_samuel
+  title:
+    custom: MariaDB
